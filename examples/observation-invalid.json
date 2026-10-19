@@ -1,0 +1,6 @@
+{
+  "resourceType": "Observation",
+  "status": "done",
+  "code": {"coding": [{"system": "http://loinc.org", "code": "8867-4"}]},
+  "valueQuantity": {"value": "seventy-two"}
+}

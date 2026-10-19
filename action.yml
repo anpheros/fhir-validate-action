@@ -1,0 +1,36 @@
+name: FHIR R4 Validate (Anpheros)
+description: Validate HL7 FHIR R4 JSON resources and Bundles in your repository with the Anpheros FHIR $validate API.
+author: Anpheros
+branding:
+  icon: check-circle
+  color: blue
+inputs:
+  api-key:
+    description: Anpheros sandbox API key (sk_test_…). Store it as a repository secret. Free at https://platform.anpheros.com/dashboard/
+    required: true
+  paths:
+    description: Files or directories to validate, one per line. Directories are searched recursively for *.json.
+    required: false
+    default: .
+  profile:
+    description: Optional StructureDefinition URL to validate against (for example an IPS profile).
+    required: false
+    default: ""
+  fail-on-warning:
+    description: Fail the job on warnings as well as errors.
+    required: false
+    default: "false"
+  api-base:
+    description: API base URL. Change only for testing.
+    required: false
+    default: https://platform.anpheros.com
+outputs:
+  resources:
+    description: Number of resources validated.
+  errors:
+    description: Number of errors found.
+  warnings:
+    description: Number of warnings found.
+runs:
+  using: node20
+  main: index.mjs
